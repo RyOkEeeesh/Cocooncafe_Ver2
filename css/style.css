@@ -237,7 +237,7 @@ nav li:nth-child(7){
   height: 80px;
   margin: 0 auto;
   text-align: center;
-  display: none;
+  /* display: none; */
 }
 
 .subcopy1, .subcopy2{
@@ -395,6 +395,16 @@ footer p{
   font-size: 20px;
   font-family: 'Shippori Mincho', serif;
   font-weight: bold;
+}
+
+.news-copy{
+  color: aliceblue;
+  font-family: "Bodoni MT";
+}
+
+.news-copy p{
+  font-size: 80px;
+  margin: 0 0 1rem 0;
 }
 
 main{
