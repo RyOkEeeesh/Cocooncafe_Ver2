@@ -1,34 +1,50 @@
-$(document).ready(function() {
-  $.fn.extend({
-      toggle_text: function (initial_text, alternate_text) {
-          return this.text(this.text() == alternate_text ? initial_text : alternate_text);
-      }
+$(window).on('load',function() {
+  $('#top-to-menu').on('click',function() {
+    $('#background-img').removeClass().addClass('background-menu');
+    $('#filter').removeClass().addClass('filter-menu');
+    $('#top').hide(500,function() {
+      $('#menu,#menu-content,#js-footer').show(500);
+    });
   });
-});
-$('.Z').click(function() {
-  $('.Z').toggle_text('メニューを見る', 'トップへ戻る');
-  $('#copy').toggle_text('Have a nice day together', 'Menu');
-  $('.subcopy1').toggle();
-  $('.subcopy2').toggle();
-  $('#background').toggleClass('background').toggleClass('background2');
-  $('#filter').toggleClass('filter').toggleClass('filter2');
-  $('#fade').toggleClass('fade').toggleClass('fadeout')
-  $('.scroll').slideToggle('');
-  $(".Y").slideToggle(800);
+  $('#menu-to-top').on('click',function() {
+    $('#background-img').removeClass().addClass('background-top');
+    $('#filter').removeClass().addClass('filter-top');
+    $('#menu,#menu-content,#js-footer').hide(500,function() {
+      $('#top').show(500);
+    });
   });
-(window.onload = function() {
-    // フェードイン処理
-  jQuery(window).scroll(function (){
-    jQuery(".fade2").each(function(){
-      var winheight = jQuery(window).height();
-      var posi = jQuery(this).offset().top;
-      var scroll = jQuery(window).scrollTop();
+  $('#for-news').on('click',function() {
+    $('#background-img').removeClass().addClass('background-news');
+    $('#filter').removeClass().addClass('filter-news-contact');
+    $('#top,#menu,#menu-content,#contact,#contact-content').hide(500,function() {
+      $('#news,#news-content,#js-footer').show(500);
+    });
+  });
+  $('#for-menu').on('click',function() {
+    $('#background-img').removeClass().addClass('background-menu');
+    $('#filter').removeClass().addClass('filter-menu');
+    $('#top,#news,#news-content,#contact,#contact-content').hide(500,function() {
+      $('#menu,#menu-content,#js-footer').show(500);
+    });
+  });
+  $('#for-contact').on('click',function() {
+    $('#background-img').removeClass().addClass('background-contact');
+    $('#filter').removeClass().addClass('filter-news-contact');
+    $('#top,#menu,#menu-content,#news,#news-content').hide(560,function() {
+      $('#contact,#contact-content,#js-footer').show(500);
+    });
+  });
+  $(window).scroll(function() {
+    $('.caption-fade').each(function() {
+      var winheight = $(window).height();
+      var posi = $(this).offset().top;
+      var scroll = $(window).scrollTop();
       if (scroll + winheight > posi){
-        jQuery(this).addClass("fadein");
+        $(this).addClass('caption-fadein');
       } else {
         //　スクロールで画面上部に戻った際に要素を非表示にしたい場合
-        // jQuery(this).removeClass("fadein");
+        // $(this).removeClass("fadein");
       }
     });
   });
-})();
+});
